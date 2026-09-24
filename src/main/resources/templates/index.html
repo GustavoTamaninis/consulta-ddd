@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Consulta DDD</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <header class="bg-dark text-center py-4 mb-5">
+        <h1 class="h1 text-white">Consulta DDD</h1>
+    </header>
+    <main class="container text-center mt-5">
+        <section class="row m-0 p-5 bg-white rounded border">
+            <form id="consulta-form" action="/api/ddd/v1" method="get" class="col-12 row m-0 p-4 bg-light rounded border">
+                <div class="row g-2 mb-3">
+                    <label for="ddd" class="col-12 p-0 form-label text-start">DDD:</label>
+                    <div class="col-12 col-md-9">
+                        <input type="text" id="ddd" placeholder="Ex.: 47" class="form-control w-100">
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <button type="submit" class="w-100 btn btn-success">Consultar</button>
+                    </div>
+<!--                    <div class="form-text">Digite um número de 11 a 99.</div>-->
+                </div>
+            </form>
+            <div id="resultado" class="col-12 row m-0 mt-5 p-5 bg-light rounded border">
+                <div class="col-12 mb-4 text-start">
+                    <p class="text-success">Resultado</p>
+                    <hr class="text-muted">
+                    <h2>DDD</h2>
+                    <p>Estado</p>
+                    <div class="d-inline px-2 py-1 text-bg-success">X municípios</div>
+                </div>
+                <table class="col-12 g-2 my-3 table table-responsive table-bordered">
+                    <tbody id="cidades">
+                    <tr>
+                        <th>Cidade A</th>
+                        <th>Cidade B</th>
+                        <th>Cidade C</th>
+                    </tr>
+                    <tr>
+                        <th>Cidade D</th>
+                        <th>Cidade E</th>
+                        <th>Cidade F</th>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-dark text-center py-4 mt-5 text-white">
+        Site feito por Gustavo Tamanini
+    </footer>
+</body>
+</html>

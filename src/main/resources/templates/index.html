@@ -23,27 +23,16 @@
 <!--                    <div class="form-text">Digite um número de 11 a 99.</div>-->
                 </div>
             </form>
-            <div id="resultado" class="col-12 row m-0 mt-5 p-5 bg-light rounded border">
+            <div id="resultado" class="d-none col-12 row m-0 mt-5 p-5 bg-light rounded border">
                 <div class="col-12 mb-4 text-start">
                     <p class="text-success">Resultado</p>
                     <hr class="text-muted">
-                    <h2>DDD</h2>
-                    <p>Estado</p>
-                    <div class="d-inline px-2 py-1 text-bg-success">X municípios</div>
+                    <h2 id="ddd-resultado"></h2>
+                    <p id="estado"></p>
+                    <div id="quantidade-cidades" class="d-inline px-2 py-1 text-bg-success"></div>
                 </div>
                 <table class="col-12 g-2 my-3 table table-responsive table-bordered">
-                    <tbody id="cidades">
-                    <tr>
-                        <th>Cidade A</th>
-                        <th>Cidade B</th>
-                        <th>Cidade C</th>
-                    </tr>
-                    <tr>
-                        <th>Cidade D</th>
-                        <th>Cidade E</th>
-                        <th>Cidade F</th>
-                    </tr>
-                    </tbody>
+                    <tbody id="cidades"></tbody>
                 </table>
             </div>
         </section>
@@ -51,5 +40,6 @@
     <footer class="bg-dark text-center py-4 mt-5 text-white">
         Site feito por Gustavo Tamanini
     </footer>
+    <script src="/scripts/consultarDdd.js"></script>
 </body>
 </html>

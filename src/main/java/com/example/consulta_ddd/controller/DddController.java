@@ -2,8 +2,6 @@ package com.example.consulta_ddd.controller;
 
 import com.example.consulta_ddd.entity.DddResponse;
 import com.example.consulta_ddd.service.DddService;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -22,15 +20,9 @@ public class DddController {
         this.dddService = dddService;
     }
 
-    @GetMapping("/{ddd}")
+    @GetMapping({"", "/", "/{ddd}"})
     public ResponseEntity<DddResponse> consultar(
-            @PathVariable("ddd")
-            @NotNull(message = "O DDD não pode ser nulo")
-            @Pattern(
-                    regexp = "^(?:1[1-9]|[2-9][0-9])$",
-                    message = "O DDD deve ser um número entre 11 e 99"
-            )
-            String ddd) {
+            @PathVariable(value = "ddd", required = false) String ddd) {
         return new ResponseEntity<>(dddService.consultar(ddd), HttpStatus.OK);
     }
 }

@@ -5,18 +5,24 @@ const dddResultado = document.getElementById("ddd-resultado");
 const estado = document.getElementById("estado");
 const quantidadeCidades = document.getElementById("quantidade-cidades");
 const cidades = document.getElementById("cidades");
+const erro = document.getElementById("erro");
 let cidadesConsultadas = [];
 
 formulario.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const valorDdd = ddd.value.trim();
+    erro.classList.add("d-none");
+    resultado.classList.add("d-none");
 
     try {
         const response = await fetch(`/api/ddd/v1/${encodeURIComponent(valorDdd)}`);
 
         if (!response.ok) {
-            throw new Error(`Erro ao consultar o DDD: ${response.status}`);
+            const erroResponse = await response.json().catch(() => null);
+            throw new Error(
+                erroResponse?.mensagem || "Não foi possível concluir a consulta."
+            );
         }
 
         const dados = await response.json();
@@ -29,6 +35,8 @@ formulario.addEventListener("submit", async (event) => {
         resultado.classList.remove("d-none");
     } catch (error) {
         console.error(error);
+        erro.textContent = error.message || "Não foi possível concluir a consulta.";
+        erro.classList.remove("d-none");
     }
 });
 
